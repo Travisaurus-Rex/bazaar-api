@@ -19,6 +19,20 @@
   },
   "homepage": "https://github.com/Travisaurus-Rex/bazaar-api#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "@aws-sdk/client-dynamodb": "^3.899.0",
+    "@aws-sdk/client-s3": "^3.899.0",
+    "@aws-sdk/lib-dynamodb": "^3.899.0",
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "aws-sdk-client-mock": "^4.1.0",
+    "jest": "^30.2.0",
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.4"
   }
 }
