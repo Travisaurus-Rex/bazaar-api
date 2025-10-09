@@ -1,8 +1,10 @@
 import { dbClient } from "../config/dynamo.js";
 import { PutCommand, GetCommand } from "@aws-sdk/lib-dynamodb";
 import bcrypt from "bcryptjs";
+import jwt from 'jsonwebtoken';
 
 const SALT_ROUNDS = 10;
+const JWT_SECRET = process.env.JWT_SECRET;
 
 export const createUser = async ({name, userId, email, password}) => {
     const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
@@ -39,5 +41,12 @@ export const verifyUserLogin = async ({ userId, password }) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return null;
 
-    return { ...user, password: undefined };
+    const { userId, email } = user;
+    const token = jwt.sign(
+        { userId, email },
+        JWT_SECRET,
+        { expiresIn: '2hr' }
+    );
+
+    return { token, user: { ...user, password: undefined }};
 }
