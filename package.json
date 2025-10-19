@@ -4,7 +4,7 @@
   "description": "Bazaar API is a Node.js + Express backend project designed as a modern online marketplace backend.  \r It integrates **AWS services** (DynamoDB, Cognito, S3, etc.) to handle authentication, data persistence, and media storage.  \r This project is meant to serve as both a portfolio-ready example and a playground for exploring scalable backend patterns.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --runInBand"
   },
   "repository": {
     "type": "git",
@@ -14,10 +14,6 @@
   "author": "",
   "license": "ISC",
   "type": "module",
-  "jest": {
-    "testEnvironment": "node",
-    "transform": {}
-  },
   "bugs": {
     "url": "https://github.com/Travisaurus-Rex/bazaar-api/issues"
   },
@@ -44,6 +40,8 @@
     "jest": "^30.2.0",
     "nodemon": "^3.1.10",
     "supertest": "^7.1.4",
+    "ts-jest": "^29.4.5",
+    "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   }
 }
