@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from "dotenv";
 import userRouter from './routes/users';
+import { errorHandler } from './middleware/errorHandler';
 
 dotenv.config();
 
@@ -13,5 +14,5 @@ app.get('/', (req: Request, res: Response) => {
 })
 
 app.use('/user', userRouter);
-
+app.use(errorHandler);
 export default app;
