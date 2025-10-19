@@ -1,8 +1,10 @@
 import jwt from 'jsonwebtoken';
+import { Response } from 'express';
+import { AuthRequest } from '../types/AuthRequest';
 
-const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_SECRET = process.env.JWT_SECRET!;
 
-export const authMiddleware = (req, res, next) => {
+export const authMiddleware = (req: AuthRequest, res: Response, next: () => void) => {
     const authHeader = req.headers.authorization;
 
     if (!authHeader || !authHeader.startsWith('Bearer'))

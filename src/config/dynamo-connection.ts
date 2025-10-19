@@ -1,5 +1,5 @@
 import { ListTablesCommand } from "@aws-sdk/client-dynamodb";
-import { dbClient } from "../config/dynamo.js";
+import { dbClient } from "./dynamo.js";
 
 const testConnection = async () => {
     try {

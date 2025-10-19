@@ -1,13 +1,12 @@
-import express from "express";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+import express, { Request, Response } from "express";
 import { createUser, verifyUserLogin } from "../models/users";
 import { authMiddleware } from '../middleware/auth';
+import { AuthRequest } from "../types/AuthRequest";
 
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET;
 
-router.post("/", async (req, res) => {
+router.post('/', async (req: Request, res: Response) => {
     try {
         const user = await createUser(req.body);
         res.status(201).json(user);
@@ -16,7 +15,7 @@ router.post("/", async (req, res) => {
     }
 })
 
-router.post("/login", async (req, res) => {
+router.post('/login', async (req: AuthRequest, res: Response) => {
     try {
         const { userId, password } = req.body;
         const user = await verifyUserLogin({ userId, password })
@@ -27,8 +26,8 @@ router.post("/login", async (req, res) => {
     }
 })
 
-router.get('/me', authMiddleware, async (req, req) => {
-    req.status(200).json({ message: 'user is authenticated', user: req.user })
+router.get('/me', authMiddleware, async (req: AuthRequest, res: Response) => {
+    res.status(200).json({ message: 'user is authenticated', user: req.user })
 })
 
 export default router;
