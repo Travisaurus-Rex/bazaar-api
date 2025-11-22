@@ -19,35 +19,35 @@ model User {
 }
 
 model Product {
-  id          String    @id @default(uuid())
+  id          String      @id @default(uuid())
   title       String
   description String
   price       Float
   imageUrl    String?
   sellerId    String
-  seller      User      @relation(fields: [sellerId], references: [id])
-  createdAt   DateTime  @default(now())
+  seller      User        @relation(fields: [sellerId], references: [id])
+  createdAt   DateTime    @default(now())
   orderItems  OrderItem[]
   reviews     Review[]
 }
 
 model Order {
-  id        String       @id @default(uuid())
+  id        String      @id @default(uuid())
   buyerId   String
-  buyer     User         @relation(fields: [buyerId], references: [id])
+  buyer     User        @relation(fields: [buyerId], references: [id])
   total     Float
   items     OrderItem[]
-  createdAt DateTime     @default(now())
+  createdAt DateTime    @default(now())
 }
 
 model OrderItem {
-  id        String   @id @default(uuid())
+  id        String  @id @default(uuid())
   quantity  Int
   price     Float
   productId String
   orderId   String
-  product   Product  @relation(fields: [productId], references: [id])
-  order     Order    @relation(fields: [orderId], references: [id])
+  product   Product @relation(fields: [productId], references: [id])
+  order     Order   @relation(fields: [orderId], references: [id])
 }
 
 enum Role {
@@ -64,10 +64,8 @@ model Review {
   productId String
   createdAt DateTime @default(now())
 
-  buyer     User     @relation(fields: [buyerId], references: [id])
-  product   Product  @relation(fields: [productId], references: [id])
+  buyer   User    @relation(fields: [buyerId], references: [id])
+  product Product @relation(fields: [productId], references: [id])
 
   @@unique([buyerId, productId])
 }
-
-
