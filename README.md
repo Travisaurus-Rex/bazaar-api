@@ -1,87 +1,98 @@
-# Bazaar API
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+</p>
 
-Bazaar API is a Node.js + Express backend project designed as a modern online marketplace backend.  
-It integrates **AWS services** (DynamoDB, Cognito, S3, etc.) to handle authentication, data persistence, and media storage.  
-This project is meant to serve as both a portfolio-ready example and a playground for exploring scalable backend patterns.
+[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+[circleci-url]: https://circleci.com/gh/nestjs/nest
 
----
+  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+    <p align="center">
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
+<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
+<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
+<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
+<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
+  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
+    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
+  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
+</p>
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Features
+## Description
 
-- **User Authentication & Authorization**  
-  - JWT-based authentication  
-  - Role-based access (buyers, sellers, admins)  
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-- **Marketplace Functionality**  
-  - User registration/login  
-  - Sellers can list products  
-  - Buyers can browse and purchase products  
-  - Orders stored with DynamoDB  
+## Project setup
 
-- **AWS Integrations**  
-  - DynamoDB: scalable NoSQL data storage  
-  - S3: product image uploads  
-  - Cognito (optional): managed authentication provider  
-  - CloudWatch: logging & monitoring  
+```bash
+$ npm install
+```
 
-- **Middleware Examples**  
-  - Global middleware for logging, request validation  
-  - Route-specific middleware for access control  
+## Compile and run the project
 
-- **Testing & CI/CD**  
-  - Jest + Supertest for unit/integration tests  
-  - GitHub Actions (or other CI/CD) for automated testing & deployment  
+```bash
+# development
+$ npm run start
 
----
+# watch mode
+$ npm run start:dev
 
-## Project Goals
+# production mode
+$ npm run start:prod
+```
 
-- Build a **scalable Node.js/Express backend**  
-- Gain hands-on experience with **AWS tools**  
-- Showcase **authentication, middleware, testing, and deployment practices**  
-- Provide a strong **portfolio project** for demonstrating backend engineering skills  
+## Run tests
 
----
+```bash
+# unit tests
+$ npm run test
 
-## Getting Started
+# e2e tests
+$ npm run test:e2e
 
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/your-username/bazaar-api.git
-   cd bazaar-api
-   ```
+# test coverage
+$ npm run test:cov
+```
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+## Deployment
 
-3. Set up environment variables (e.g., AWS credentials, JWT secret, DynamoDB table names).
+When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
 
-4. Run in development:
-   ```bash
-   npm run dev
-   ```
+If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
 
-5. Run tests:
-   ```bash
-   npm test
-   ```
+```bash
+$ npm install -g @nestjs/mau
+$ mau deploy
+```
 
----
+With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
 
-## Roadmap
+## Resources
 
-- [ ] Set up project structure (Express + TypeScript optional)  
-- [ ] Add authentication system (JWT + middleware)  
-- [ ] Implement basic marketplace routes (users, products, orders)  
-- [ ] Integrate AWS DynamoDB for persistence  
-- [ ] Add image upload with S3  
-- [ ] Add unit + integration tests  
-- [ ] Configure GitHub Actions for CI/CD  
+Check out a few resources that may come in handy when working with NestJS:
 
----
+- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
+- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
+- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
+- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
+- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
+- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
+- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
+- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+
+## Support
+
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+
+## Stay in touch
+
+- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Twitter - [@nestframework](https://twitter.com/nestframework)
 
 ## License
 
-MIT
+Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
