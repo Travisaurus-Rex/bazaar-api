@@ -1,3 +1,4 @@
+import { Role } from '@prisma/client';
 import { IsEmail, IsString, MinLength, IsIn, IsOptional } from 'class-validator';
 
 export class RegisterDto {
@@ -10,5 +11,5 @@ export class RegisterDto {
 
   @IsOptional()
   @IsIn(['buyer', 'seller', 'admin'])
-  role?: string;
+  role?: Role;
 }
