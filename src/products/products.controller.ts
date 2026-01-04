@@ -19,7 +19,7 @@ import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
 import { RolesGuard } from '../common/guards/roles.guard';
 import { Roles } from '../common/decorators/roles.decorator';
 import { S3Service } from '../aws/s3.service';
-import type { Role } from '@prisma/client';
+import { Role } from '@prisma/client';
 
 @Controller('products')
 export class ProductsController {
@@ -39,7 +39,7 @@ export class ProductsController {
   }
 
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('seller', 'admin')
+  @Roles(Role.seller, Role.admin)
   @Get('seller/mine')
   getMine(@Req() req) {
     const userId = req.user.userId as string;
