@@ -16,7 +16,7 @@ export class CreateProductDto {
   description: string;
 
   @IsNumber()
-  @Min(0.01, { message: 'Price must be at least $0.04' })
+  @Min(0.01, { message: 'Price must be at least $0.01' })
   price: number;
 
   @IsOptional()
