@@ -1,4 +1,10 @@
-import { IsString, IsNumber, Min, MinLength } from 'class-validator';
+import {
+  IsString,
+  IsNumber,
+  Min,
+  MinLength,
+  IsOptional,
+} from 'class-validator';
 
 export class CreateProductDto {
   @IsString()
@@ -10,6 +16,10 @@ export class CreateProductDto {
   description: string;
 
   @IsNumber()
-  @Min(0)
+  @Min(0.01, { message: 'Price must be at least $0.04' })
   price: number;
+
+  @IsOptional()
+  @IsString()
+  imgUrl?: string;
 }
