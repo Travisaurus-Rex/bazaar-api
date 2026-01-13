@@ -1,16 +1,38 @@
-import { Injectable, ForbiddenException, NotFoundException } from '@nestjs/common';
+import {
+  Injectable,
+  ForbiddenException,
+  NotFoundException,
+} from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
-import { Role } from '@prisma/client';
+import { Product, Role } from '@prisma/client';
+import { PaginatedResponse } from 'src/common/dto/PaginatedResponse';
 
 @Injectable()
 export class ProductsService {
   constructor(private prisma: PrismaService) {}
 
-  findAll() {
-    return this.prisma.product.findMany({
-      orderBy: { createdAt: 'desc' },
+  async findAll(
+    page: number,
+    limit: number = 20,
+  ): Promise<PaginatedResponse<Product>> {
+    const skip = (page - 1) * limit;
+    const [products, total] = await Promise.all([
+      this.prisma.product.findMany({
+        skip,
+        take: limit,
+        orderBy: { createdAt: 'desc' },
+      }),
+      this.prisma.product.count(),
+    ]);
+
+    return new PaginatedResponse({
+      data: products,
+      total,
+      page,
+      pages: Math.ceil(total / limit),
+      limit,
     });
   }
 
